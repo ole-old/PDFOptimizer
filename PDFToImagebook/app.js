@@ -9,7 +9,8 @@ var dateDownloadStart, dateDownloadEnd, dateConversionStart, dateConversionEnd, 
 
 var current_target_couch_server = process.argv[2];
 
-var nano = require('nano')(current_target_couch_server), resources = nano.use('resources');
+var nano = require('nano')(current_target_couch_server);
+var resources = nano.use('resources');
 
 function writeToFile(fileName, data, successMsg) {
     fs.open("./" + temp_conversion_folder_name + "/" + fileName, 'a', 0666, function(err, fd){
