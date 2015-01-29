@@ -29,17 +29,18 @@ var nano = require('nano')(current_target_couch_server), resources = nano.use('r
 follow({db: current_target_couch_server + "/resources",since:'now'}, function(error, change) {
     follow_context = this;
     if(!error) {
-           console.log("Event number " + (++counter));
-           var revId = change.changes[0].rev;
-           var resId = change.id;
-           follow_context.pause();
-           getData();
-      }
-    else {
+        console.log("Event number " + (++counter));
+        var revId = change.changes[0].rev;
+        var resId = change.id;
+        follow_context.pause();
+        getData();
+    } else {
         console.log(error);
     }
 });
 
+console.log("PDF optimization engine is up and running..");
+    
 
 function  getData(){
     var resId = "";
