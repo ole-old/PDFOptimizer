@@ -1,7 +1,0 @@
-resource docs added for testing pdf to imagebook
-------------------------------------------------
-
-908cff949cfafb0fc17c804509004557  dm - exercise          
-908cff949cfafb0fc17c804509004ab5  couchdb - security     set
-908cff949cfafb0fc17c804509003738  comp vision            set
-908cff949cfafb0fc17c804509004d92  nodejs err handling
