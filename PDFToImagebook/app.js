@@ -147,7 +147,7 @@ function downloadFile(resId, fileName, callback) {
                         console.log("Starting conversion of the pdf resource into imagebook...");
                         dateConversionStart = new Date();
                         // console.log("Conversion duration clock started");
-                        var child = exec('pdfToImageConvertor.bat "'+sourcePdfPath+'" "'+destPdfPath+'"',
+                        var child = exec('PDFToImagebook\\pdfToImageConvertor.bat "'+sourcePdfPath+'" "'+destPdfPath+'"',
                             function( error, stdout, stderr) {
                                 if ( error == null ) {
                                     dateConversionEnd = new Date();
@@ -227,7 +227,7 @@ function uploadFiles(resId, fileName, mainCallback){
                     // garbage collect the folder whose contents (images of the source PDF) have been uploaded successfully
                     var exec = require('child_process').exec;
                     var destPdfPath = temp_conversion_folder_path + "\\" + resId;
-                    var child = exec('deleteFolder.bat "' + destPdfPath + '"' , function( error, stdout, stderr) {
+                    var child = exec('PDFToImagebook\\deleteFolder.bat "' + destPdfPath + '"' , function( error, stdout, stderr) {
                         if ( error == null ) {
 //                            console.log("Temporary folder for processing resource (" + fileName +
 //                                ") successfully garbage collected");
