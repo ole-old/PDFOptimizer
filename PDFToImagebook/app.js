@@ -186,12 +186,12 @@ function uploadFiles(resId, fileName, mainCallback){
                 } else {
                     files.push({name: stat.name, data: data, content_type: 'image/jpeg'});
                 }
+                next();
             } else {
                 console.log("Error reading file " + fName);
                 mainCallback(err);
             }
         });
-        next();
     });
     walker.on('end', function() {
         resources.get(resId, function(err, body) {
@@ -219,7 +219,7 @@ function uploadFiles(resId, fileName, mainCallback){
                        "uploading: (" + durationUpload.minutes + ", " + durationUpload.second + ")" +
                        ",  finshing_time: (" + dateUploadEnd.toString() + ")" +
                        ",   resource: " + fileName + "\n" ;
-                    var strUrl = "http://openbell.ole.org:5984/apps/_design/bell/bell-resource-router/index.html#open/" +
+                    var strUrl = current_target_couch_server + "/apps/_design/bell/bell-resource-router/index.html#open/" +
                                                 resId + "\n";
                     writeToFile("imagebookURLs.txt", strUrl, "Resource URL written to imagebookURLs.txt after being completely processed");
                     writeToFile("Durations.txt", resourceDurationLogEntry, "Processing durations for the resource logged to Durations.txt");
